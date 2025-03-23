@@ -20,7 +20,7 @@ export class VersionCommand implements Command {
     return CommandName.Version;
   }
 
-  public async execute(..._parameters: string[]): Promise<void> {
+  async execute(..._parameters: string[]): Promise<void> {
     try {
       const version = this.readVersion();
       console.info(version);
