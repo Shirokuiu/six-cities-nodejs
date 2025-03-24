@@ -6,7 +6,6 @@ import {
   OfferApartmentType,
   UserType,
 } from '../../types/index.js';
-import * as console from 'node:console';
 
 export class TsvFileReader implements FileReader {
   private rawData = '';
@@ -21,13 +20,6 @@ export class TsvFileReader implements FileReader {
     if (!this.rawData) {
       throw new Error('File was not read');
     }
-
-    console.log(
-      this.rawData
-        .split('\n')
-        .filter((row) => row.trim().length > 0)
-        .map((line) => line.split('\t')),
-    );
 
     return this.rawData
       .split('\n')
