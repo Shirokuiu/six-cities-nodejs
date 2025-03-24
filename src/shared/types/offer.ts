@@ -1,13 +1,13 @@
 import { User } from 'src/shared/types/user.js';
 
-export enum ApartmentType {
+export enum OfferApartmentType {
   Apartment = 'apartment',
   House = 'house',
   Room = 'room',
   Hotel = 'hotel',
 }
 
-export enum ApartmentConvenience {
+export enum OfferApartmentConvenience {
   Breakfast = 'Breakfast',
   AirConditioning = 'Air conditioning',
   LaptopFriendlyWorkspace = 'Laptop friendly workspace',
@@ -17,14 +17,14 @@ export enum ApartmentConvenience {
   Fridge = 'Fridge',
 }
 
-export type ApartmentCoordinate = {
+export type OfferApartmentCoordinate = {
   name: string;
   latitude: number;
   longitude: number;
 };
 
-export type Apartment = {
-  name: string;
+export type Offer = {
+  title: string;
   description: string;
   date: string;
   city: string;
@@ -33,13 +33,13 @@ export type Apartment = {
   isPremium: boolean;
   isFavorite: boolean;
   rate: number;
-  type: ApartmentType;
+  type: OfferApartmentType;
   roomCount: number;
   guestCount: number;
   cost: number;
-  conveniences: ApartmentConvenience[];
-  author: User;
-  coordinate: ApartmentCoordinate;
+  conveniences: OfferApartmentConvenience[];
+  author: Omit<User, 'password'>;
+  coordinate: OfferApartmentCoordinate;
 };
 
 // Наименование. Обязательное. Мин. длин 10 символов, макс. длина 100;

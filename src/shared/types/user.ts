@@ -4,10 +4,11 @@ export enum UserType {
 }
 
 export type User = {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
+  type: UserType;
   password: string;
-  userType: UserType;
   avatar?: string;
 };
 
