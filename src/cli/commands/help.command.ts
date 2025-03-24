@@ -1,5 +1,5 @@
-import { Command } from 'src/cli/commands/command.interface.js';
-import { CommandName } from 'src/cli/commands/types.js';
+import { CommandName } from './types.js';
+import { Command } from './command.interface.js';
 
 export class HelpCommand implements Command {
   getName(): CommandName {

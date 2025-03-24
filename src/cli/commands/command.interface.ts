@@ -1,4 +1,4 @@
-import { CommandName } from 'src/cli/commands/types.js';
+import { CommandName } from './types.js';
 
 export interface Command {
   getName(): CommandName;
