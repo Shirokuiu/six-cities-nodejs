@@ -49,7 +49,7 @@
       "room",
       "house"
     ],
-    "facilities": [
+    "conveniences": [
       "Breakfast",
       "Air conditioning",
       "Laptop friendly workspace",
@@ -58,37 +58,39 @@
       "Towels",
       "Fridge"
     ],
-    "authors": [
-      {
-        "names": [
-          "Шишкина Полина",
-          "Седов Георгий",
-          "Смирнов Денис",
-          "Голованова Яна",
-          "Орлов Михаил"
-        ],
-        "emails": [
-          "queippebraceda-8311@yopmail.com",
-          "woframmaukatu-1921@yopmail.com",
-          "huseussaffanno-9359@yopmail.com",
-          "crimeicoutrozei-4894@yopmail.com",
-          "houguqueitussoi-7578@yopmail.com"
-        ],
-        "avatars": [
-          "avatar1.jpg",
-          "avatar2.jpg",
-          "avatar3.jpg",
-          "avatar4.jpg",
-          "avatar5.jpg"
-        ],
-        "passwords": [
-          "BIqJIoy7-2",
-          "6BjYTj5F-G",
-          "uljVHzzc_8",
-          "fqi_FN2Nr5",
-          "o1u-AoB4kM"
-        ]
-      }
-    ]
+    "author": {
+      "names": [
+        "Шишкина Полина",
+        "Седов Георгий",
+        "Смирнов Денис",
+        "Голованова Яна",
+        "Орлов Михаил"
+      ],
+      "emails": [
+        "queippebraceda-8311@yopmail.com",
+        "woframmaukatu-1921@yopmail.com",
+        "huseussaffanno-9359@yopmail.com",
+        "crimeicoutrozei-4894@yopmail.com",
+        "houguqueitussoi-7578@yopmail.com"
+      ],
+      "avatars": [
+        "avatar1.jpg",
+        "avatar2.jpg",
+        "avatar3.jpg",
+        "avatar4.jpg",
+        "avatar5.jpg"
+      ],
+      "passwords": [
+        "BIqJIoy7-2",
+        "6BjYTj5F-G",
+        "uljVHzzc_8",
+        "fqi_FN2Nr5",
+        "o1u-AoB4kM"
+      ],
+      "types": [
+        "default",
+        "pro"
+      ]
+    }
   }
 }

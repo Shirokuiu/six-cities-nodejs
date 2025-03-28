@@ -1,8 +1,11 @@
+import { OfferApartmentConvenience, OfferApartmentType } from 'src/shared/types/offer.js';
+import { UserType } from 'src/shared/types/user.js';
+
 export type Author = {
   names: string[];
   emails: string[];
   avatars: string[];
-  passwords: string[];
+  types: UserType[];
 };
 
 export type MockServerData = {
@@ -12,7 +15,7 @@ export type MockServerData = {
   cities: string[];
   previews: string[];
   photos: string[];
-  types: string[];
-  facilities: string[];
-  authors: Author[];
+  types: OfferApartmentType[];
+  conveniences: OfferApartmentConvenience[];
+  author: Author;
 };

@@ -6,6 +6,7 @@ import {
   OfferApartmentType,
   UserType,
 } from '../../types/index.js';
+import { Symbols } from 'src/shared/constants.js';
 
 export class TsvFileReader implements FileReader {
   private rawData = '';
@@ -22,9 +23,9 @@ export class TsvFileReader implements FileReader {
     }
 
     return this.rawData
-      .split('\n')
+      .split(Symbols.NewLine)
       .filter((row) => row.trim().length > 0)
-      .map((line) => line.split('\t'))
+      .map((line) => line.split(Symbols.Tab))
       .map(
         ([
           title,

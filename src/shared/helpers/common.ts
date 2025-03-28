@@ -25,6 +25,7 @@ export const getRandomItems = <T>(items: T[]): T[] => {
   return shuffle(items.slice(startPosition, endPosition));
 };
 
-export const getRandomItem = <T>(items: T[]): T => items[generateRandomValue(0, items.length - 1)];
+export const getRandomItem = <T>(items: T[]): T =>
+  shuffle(items)[generateRandomValue(0, items.length - 1)];
 
 export const getAbsolutePath = (filePath: string): string => join(resolve(), filePath);
