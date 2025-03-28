@@ -1,0 +1,96 @@
+{
+  "api": {
+    "titles": [
+      "Наименование 1",
+      "Наименование 2",
+      "Наименование 3",
+      "Наименование 4",
+      "Наименование 5"
+    ],
+    "descriptions": [
+      "Описание предложения 1",
+      "Описание предложения 2",
+      "Описание предложения 3",
+      "Описание предложения 4",
+      "Описание предложения 5"
+    ],
+    "dates": [
+      "2023-09-19T18:31:42+03:30",
+      "2023-09-20T18:31:42+03:30",
+      "2023-09-21T19:31:42+03:30",
+      "2023-09-22T18:31:42+03:30",
+      "2023-09-23T18:31:42+03:30"
+    ],
+    "cities": [
+      "Paris",
+      "Cologne",
+      "Brussels",
+      "Amsterdam",
+      "Hamburg",
+      "Dusseldorf"
+    ],
+    "previews": [
+      "preview1.jpg",
+      "preview2.jpg",
+      "preview3.jpg",
+      "preview4.jpg",
+      "preview5.jpg"
+    ],
+    "photos": [
+      "photo1.jpg",
+      "photo2.jpg",
+      "photo3.jpg",
+      "photo4.jpg",
+      "photo5.jpg"
+    ],
+    "types": [
+      "apartment",
+      "hotel",
+      "room",
+      "house"
+    ],
+    "conveniences": [
+      "Breakfast",
+      "Air conditioning",
+      "Laptop friendly workspace",
+      "Baby seat",
+      "Washer",
+      "Towels",
+      "Fridge"
+    ],
+    "author": {
+      "names": [
+        "Шишкина Полина",
+        "Седов Георгий",
+        "Смирнов Денис",
+        "Голованова Яна",
+        "Орлов Михаил"
+      ],
+      "emails": [
+        "queippebraceda-8311@yopmail.com",
+        "woframmaukatu-1921@yopmail.com",
+        "huseussaffanno-9359@yopmail.com",
+        "crimeicoutrozei-4894@yopmail.com",
+        "houguqueitussoi-7578@yopmail.com"
+      ],
+      "avatars": [
+        "avatar1.jpg",
+        "avatar2.jpg",
+        "avatar3.jpg",
+        "avatar4.jpg",
+        "avatar5.jpg"
+      ],
+      "passwords": [
+        "BIqJIoy7-2",
+        "6BjYTj5F-G",
+        "uljVHzzc_8",
+        "fqi_FN2Nr5",
+        "o1u-AoB4kM"
+      ],
+      "types": [
+        "default",
+        "pro"
+      ]
+    }
+  }
+}
