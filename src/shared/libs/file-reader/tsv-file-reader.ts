@@ -1,85 +1,38 @@
 import { FileReader } from './file-reader.interface.js';
-import { readFileSync } from 'node:fs';
-import {
-  Offer,
-  OfferApartmentConvenience,
-  OfferApartmentType,
-  UserType,
-} from '../../types/index.js';
+import EventEmitter from 'node:events';
+import { createReadStream } from 'node:fs';
+
 import { Symbols } from 'src/shared/constants.js';
 
-export class TsvFileReader implements FileReader {
-  private rawData = '';
+const CHUNK_SIZE = 16000;
 
-  constructor(private readonly filename: string) {}
-
-  read(): void {
-    this.rawData = readFileSync(this.filename, { encoding: 'utf-8' });
+export class TsvFileReader extends EventEmitter implements FileReader {
+  constructor(private readonly filename: string) {
+    super();
   }
 
-  toArray(): Offer[] {
-    if (!this.rawData) {
-      throw new Error('File was not read');
+  async read(): Promise<void> {
+    const readStream = createReadStream(this.filename, {
+      highWaterMark: CHUNK_SIZE,
+      encoding: 'utf-8',
+    });
+
+    let remainingData = '';
+    let nextLinePosition = -1;
+    let importedRowCount = 0;
+
+    for await (const chunk of readStream) {
+      remainingData += chunk.toString();
+
+      while ((nextLinePosition = remainingData.indexOf(Symbols.NewLine)) >= 0) {
+        const completeRow = remainingData.slice(0, nextLinePosition + 1);
+        remainingData = remainingData.slice(++nextLinePosition);
+        importedRowCount++;
+
+        this.emit('line', completeRow);
+      }
     }
 
-    return this.rawData
-      .split(Symbols.NewLine)
-      .filter((row) => row.trim().length > 0)
-      .map((line) => line.split(Symbols.Tab))
-      .map(
-        ([
-          title,
-          description,
-          date,
-          city,
-          previewImg,
-          photos,
-          isPremium,
-          isFavorite,
-          rate,
-          type,
-          roomCount,
-          guestCount,
-          cost,
-          conveniences,
-          authorLastName,
-          authorFirstName,
-          authorEmail,
-          authorAvatar,
-          authorType,
-          coordinateName,
-          coordinateLatitude,
-          coordinateLongitude,
-        ]) => ({
-          title,
-          description,
-          date,
-          city,
-          previewImg,
-          isPremium: JSON.parse(isPremium) as boolean,
-          isFavorite: JSON.parse(isFavorite) as boolean,
-          rate: parseInt(rate, 10),
-          type: type as OfferApartmentType,
-          roomCount: parseInt(roomCount, 10),
-          guestCount: parseInt(guestCount, 10),
-          cost: parseInt(cost, 10),
-          conveniences: conveniences
-            .split(';')
-            .map((convenience) => convenience) as OfferApartmentConvenience[],
-          photos: photos.split(';').map((photo) => photo),
-          author: {
-            email: authorEmail,
-            firstName: authorFirstName,
-            lastName: authorLastName,
-            avatar: authorAvatar,
-            type: authorType as UserType,
-          },
-          coordinate: {
-            name: coordinateName,
-            latitude: parseInt(coordinateLatitude, 10),
-            longitude: parseInt(coordinateLongitude, 10),
-          },
-        }),
-      );
+    this.emit('end', importedRowCount);
   }
 }
