@@ -1,6 +1,6 @@
 import { Command } from './command.interface.js';
 import { CommandName } from './types.js';
-import { TsvFileReader } from '../../shared/libs/file-reader/index.js';
+import { TSVFileReader } from '../../shared/libs/file-reader/index.js';
 import chalk from 'chalk';
 import { createOffer } from 'src/shared/helpers/index.js';
 
@@ -11,7 +11,7 @@ export class ImportCommand implements Command {
 
   execute(...params: string[]) {
     const [filename] = params;
-    const fileReader = new TsvFileReader(filename.trim());
+    const fileReader = new TSVFileReader(filename.trim());
 
     fileReader.on('line', this.onImportedLine);
     fileReader.on('end', this.onCompleteImport);

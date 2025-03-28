@@ -6,7 +6,7 @@ import { Symbols } from 'src/shared/constants.js';
 
 const CHUNK_SIZE = 16000;
 
-export class TsvFileReader extends EventEmitter implements FileReader {
+export class TSVFileReader extends EventEmitter implements FileReader {
   constructor(private readonly filename: string) {
     super();
   }
